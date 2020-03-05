@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_rent"
+        android:icon="@drawable/ic_action_name"
+        android:title="Rent" />
+    <item
+        android:id="@+id/navigation_donation"
+        android:icon="@drawable/ic_action_name"
+        android:title="Donate" />
+    <item
+        android:id="@+id/navigation_help"
+        android:icon="@drawable/ic_action_name"
+        android:title="Help"
+        />
+
+</menu>
