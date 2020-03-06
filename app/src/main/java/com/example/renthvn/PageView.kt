@@ -20,7 +20,6 @@ class PageView : PagerAdapter{
         this.path = path
     }
 
-
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
 
         return view == `object` as LinearLayout

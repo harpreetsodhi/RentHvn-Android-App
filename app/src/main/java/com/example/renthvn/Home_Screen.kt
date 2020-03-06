@@ -5,18 +5,25 @@ import android.media.audiofx.BassBoost
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Toast
 import android.widget.Toolbar
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.viewpager.widget.ViewPager
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_home__screen.*
+import kotlinx.android.synthetic.main.bottom_navigation_footer.*
 import java.sql.Time
 import java.util.*
 
-class Home_Screen : AppCompatActivity() {
+class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
   //  private val mPager: ViewPager
   lateinit var dotsLayout: LinearLayout
@@ -24,17 +31,35 @@ class Home_Screen : AppCompatActivity() {
     var path :IntArray = intArrayOf(R.drawable.slider_1,R.drawable.slide_2,R.drawable.slide_3,R.drawable.slide_2)
     lateinit var dots:Array<ImageView>
     lateinit var adapter:PageView
-    lateinit var toolbar: Toolbar
+
     var currentPage: Int = 0
     lateinit var timer:Timer
     val DELAY_MS: Long = 2500
     val PERIOD_MS: Long = 2500
 
+    lateinit var toolbar: androidx.appcompat.widget.Toolbar
+    lateinit var drawerLayout: DrawerLayout
+    lateinit var navView: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home__screen)
         bottom_navigation.setSelectedItemId(R.id.navigation_rent)
+
+        //drawer handling
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        drawerLayout = findViewById(R.id.drawer_layout)
+        navView = findViewById(R.id.nav_view)
+
+        val toggle = ActionBarDrawerToggle(
+            this, drawerLayout, toolbar, 0, 0
+        )
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+        navView.setNavigationItemSelectedListener(this)
+
+
         //toolbar = findViewById(R.id.toolbar) as Toolbar
         mPager = findViewById(R.id.pager) as ViewPager
         adapter = PageView(this,path)
@@ -110,6 +135,29 @@ class Home_Screen : AppCompatActivity() {
 
     }
 
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        Toast.makeText(this, "Listener clicked", Toast.LENGTH_SHORT).show()
+        System.out.println("hbbui")
+        when (item.itemId) {
+            R.id.nav_men -> {
+                Toast.makeText(this, "Profile clicked", Toast.LENGTH_SHORT).show()
+            }
+            R.id.nav_women -> {
+                Toast.makeText(this, "Messages clicked", Toast.LENGTH_SHORT).show()
+            }
+            R.id.nav_update -> {
+                Toast.makeText(this, "Update clicked", Toast.LENGTH_SHORT).show()
+            }
+            R.id.nav_logout -> {
+                Toast.makeText(this, "Sign out clicked", Toast.LENGTH_SHORT).show()
+            }
+            else -> {
+                Toast.makeText(this, "els me hai", Toast.LENGTH_SHORT).show()
+            }
+        }
+        drawerLayout.closeDrawer(GravityCompat.START)
+        return true
+    }
 
 
 }
