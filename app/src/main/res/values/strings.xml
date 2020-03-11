@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">renthvn</string>
+    <string name="app_name">Renthvn</string>
+    <string name="welcome">Renthvn</string>
+    <string name="desc">Your one stop destination for all things trendy</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="bgimage">bgImage</string>
+    <string name="sign_in">Sign in</string>
+    <string name="signup">New here? Sign up.</string>
+    <string name="forgotpass">Forgot Password?</string>
 </resources>
