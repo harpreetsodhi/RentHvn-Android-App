@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "279010993855",
-    "firebase_url": "https://renthvn-995ea.firebaseio.com",
-    "project_id": "renthvn-995ea",
-    "storage_bucket": "renthvn-995ea.appspot.com"
+    "project_number": "375320382610",
+    "firebase_url": "https://renthvn-fe781.firebaseio.com",
+    "project_id": "renthvn-fe781",
+    "storage_bucket": "renthvn-fe781.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:279010993855:android:bf1d29cb17fba01d49480a",
+        "mobilesdk_app_id": "1:375320382610:android:376df46ed40ae910ef6a4b",
         "android_client_info": {
           "package_name": "com.example.renthvn"
         }
       },
       "oauth_client": [
         {
-          "client_id": "279010993855-909ick1dp27c52l40rtd5n23ikta51ig.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.renthvn",
-            "certificate_hash": "4b31fe4fcba4d67855eb7d51222247ae636a0d8f"
-          }
-        },
-        {
-          "client_id": "279010993855-4n28ea4o0k9ou7ndv14ea68k79d7nfdk.apps.googleusercontent.com",
+          "client_id": "375320382610-mril8ov7gp7ifuko79etfu67ghkfem7a.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD8bybxEO-tM0as-8X3dLOX8ZHEJQDefCM"
+          "current_key": "AIzaSyAExzKgrAQKO0ioT8JAO4YZ1dHAoQEZM0w"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "279010993855-4n28ea4o0k9ou7ndv14ea68k79d7nfdk.apps.googleusercontent.com",
+              "client_id": "375320382610-mril8ov7gp7ifuko79etfu67ghkfem7a.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
