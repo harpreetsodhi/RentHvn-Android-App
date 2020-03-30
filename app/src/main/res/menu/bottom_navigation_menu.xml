@@ -3,15 +3,15 @@
 
     <item
         android:id="@+id/navigation_rent"
-        android:icon="@drawable/ic_action_name"
+        android:icon="@drawable/rent1"
         android:title="Rent" />
     <item
         android:id="@+id/navigation_donation"
-        android:icon="@drawable/ic_action_name"
+        android:icon="@drawable/donate1"
         android:title="Donate" />
     <item
         android:id="@+id/navigation_help"
-        android:icon="@drawable/ic_action_name"
+        android:icon="@drawable/help"
         android:title="Help"
         />
 

@@ -8,10 +8,7 @@ import android.os.Handler
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.Toast
-import android.widget.Toolbar
+import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
@@ -57,7 +54,8 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
         )
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-        navView.setNavigationItemSelectedListener(this)
+       // navView.setNavigationItemSelectedListener(this)
+        nav_view.setNavigationItemSelectedListener(this)
 
 
         //toolbar = findViewById(R.id.toolbar) as Toolbar
@@ -71,7 +69,6 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
 
         mPager.addOnPageChangeListener(object: ViewPager.OnPageChangeListener{
             override fun onPageScrollStateChanged(state: Int) {
-
             }
 
             override fun onPageScrolled(
@@ -89,6 +86,32 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
             }
 
         })
+
+
+        // Create an ArrayAdapter
+        val adapter = ArrayAdapter.createFromResource(this,
+            R.array.cityNames, android.R.layout.simple_spinner_item)
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        // Apply the adapter to the spinner
+        spinner.adapter = adapter
+
+        spinner.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>,
+                                        view: View, position: Int, id: Long) {
+                getValues(view)
+
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // write code to perform some action
+            }
+        }
+
+
+
+
     }
 
     fun createDots(position: Int){
@@ -136,28 +159,27 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        Toast.makeText(this, "Listener clicked", Toast.LENGTH_SHORT).show()
-        System.out.println("hbbui")
         when (item.itemId) {
             R.id.nav_men -> {
-                Toast.makeText(this, "Profile clicked", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Men clicked", Toast.LENGTH_SHORT).show()
             }
             R.id.nav_women -> {
-                Toast.makeText(this, "Messages clicked", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Women clicked", Toast.LENGTH_SHORT).show()
             }
             R.id.nav_update -> {
                 Toast.makeText(this, "Update clicked", Toast.LENGTH_SHORT).show()
             }
             R.id.nav_logout -> {
-                Toast.makeText(this, "Sign out clicked", Toast.LENGTH_SHORT).show()
-            }
-            else -> {
-                Toast.makeText(this, "els me hai", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "logout clicked", Toast.LENGTH_SHORT).show()
             }
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
 
+
+    fun getValues(view: View) {
+        Toast.makeText(this, "Spinner " + spinner.selectedItem.toString(), Toast.LENGTH_LONG).show()
+    }
 
 }

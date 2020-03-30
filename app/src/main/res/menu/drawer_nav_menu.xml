@@ -5,11 +5,11 @@
 
         <item
             android:id="@+id/nav_women"
-
+            android:icon="@drawable/active_dots"
             android:title="Women"/>
         <item
             android:id="@+id/nav_men"
-
+            android:icon="@drawable/active_dots"
             android:title="Men"/>
     </group>
 
@@ -18,11 +18,11 @@
         <menu>
             <item
                 android:id="@+id/nav_update"
-
+                android:icon="@drawable/ic_edit"
                 android:title="Update Profile"/>
             <item
                 android:id="@+id/nav_logout"
-
+                android:icon="@drawable/ic_power"
                 android:title="Sign Out"/>
         </menu>
     </item>
