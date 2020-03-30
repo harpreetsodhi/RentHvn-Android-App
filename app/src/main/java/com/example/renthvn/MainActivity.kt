@@ -3,8 +3,12 @@ package com.example.renthvn
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import com.braintreepayments.api.dropin.DropInRequest
+import com.braintreepayments.api.dropin.DropInActivity
+import com.braintreepayments.api.dropin.DropInResult
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,11 +16,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        btn.setOnClickListener {
-//            val intent = Intent(this, Cart::class.java)
-//            startActivity(intent)
-//        }
+        // button to open Cart Activity
+        btn.setOnClickListener {
+            val intent = Intent(this, Cart::class.java)
+            startActivity(intent)
+        }
     }
-
-
 }
