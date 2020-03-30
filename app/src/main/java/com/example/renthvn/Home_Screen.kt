@@ -38,6 +38,7 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
     lateinit var drawerLayout: DrawerLayout
     lateinit var navView: NavigationView
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home__screen)
@@ -109,6 +110,61 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
             }
         }
 
+        val cart_listener = findViewById(R.id.cart_image) as ImageView
+        // set on-click listener
+        cart_listener.setOnClickListener {
+            // your code to perform when the user clicks on the ImageView
+            Toast.makeText(this, "You clicked on cart.", Toast.LENGTH_SHORT).show()
+        }
+
+        val search_listener = findViewById(R.id.search_image) as ImageView
+        // set on-click listener
+        search_listener.setOnClickListener {
+            // your code to perform when the user clicks on the ImageView
+            Toast.makeText(this, "You clicked on search.", Toast.LENGTH_SHORT).show()
+        }
+
+        r1.setOnClickListener {
+
+            Toast.makeText(this, "You clicked on bridal.", Toast.LENGTH_SHORT).show()
+        }
+
+        r2.setOnClickListener {
+
+            Toast.makeText(this, "You clicked on groom.", Toast.LENGTH_SHORT).show()
+        }
+
+        r3.setOnClickListener {
+
+            Toast.makeText(this, "You clicked on women designer.", Toast.LENGTH_SHORT).show()
+        }
+
+        r4.setOnClickListener {
+
+            Toast.makeText(this, "You clicked on men designer.", Toast.LENGTH_SHORT).show()
+        }
+
+
+
+        bottom_navigation.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.navigation_rent-> {
+                    Toast.makeText(this, "Got to rent", Toast.LENGTH_SHORT).show()
+                }
+
+                R.id.navigation_donation-> {
+                    Toast.makeText(this, "Got to donate", Toast.LENGTH_SHORT).show()
+                }
+
+                R.id.navigation_help-> {
+
+                    Toast.makeText(this, "Got to help", Toast.LENGTH_SHORT).show()
+                }
+
+            }
+            false
+
+        }
 
 
 
