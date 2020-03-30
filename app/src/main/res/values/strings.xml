@@ -1,11 +1,25 @@
 <resources>
     <string name="app_name">Renthvn</string>
-    <string name="welcome">Renthvn</string>
-    <string name="desc">Your one stop destination for all things trendy</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="bgimage">bgImage</string>
-    <string name="sign_in">Sign in</string>
-    <string name="signup">New here? Sign up.</string>
-    <string name="forgotpass">Forgot Password?</string>
+    <string name="main_updatePass">Update Pass</string>
+    <string name="main_logOut">Log Out</string>
+    <string name="cd_signup_backButton">Back Button</string>
+    <string name="signup_createAccount">Create Account</string>
+    <string name="login_logintext">Login</string>
+    <string name="login_forgotPass">Forgot password?</string>
+    <string name="login_or">OR</string>
+    <string name="login_new_here_sign_up">New here? Sign Up</string>
+    <string name="passwordRules">
+        Password must contain:\n
+        - 8 Characters\n
+        - 1 Lowercase letter\n
+        - 1 Uppercase letter\n
+        - 1 Number\n
+        - 1 Special character (! @ # $ % ^ &amp; *\n\t\t\t - _ = +)
+    </string>
+    <string name="fp_resetButton">Reset my password</string>
+    <string name="cd_fp_backButton">Back Button</string>
+    <string name="up_reset">Reset</string>
+    <string name="up_or">OR</string>
+    <string name="up_back">Back</string>
+    <string name="cd_help_closeButton">Close Button</string>
 </resources>
