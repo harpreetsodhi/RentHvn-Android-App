@@ -20,5 +20,11 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
     </application>
-
+    <supports-screens
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:largeScreens="true"
+        android:xlargeScreens="true"
+        android:normalScreens="true"
+        android:anyDensity="true"/>
 </manifest>

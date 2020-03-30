@@ -129,7 +129,7 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
             Toast.makeText(this, "You clicked on bridal.", Toast.LENGTH_SHORT).show()
         }
 
-        r2.setOnClickListener {
+/*        r2.setOnClickListener {
 
             Toast.makeText(this, "You clicked on groom.", Toast.LENGTH_SHORT).show()
         }
@@ -142,7 +142,7 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
         r4.setOnClickListener {
 
             Toast.makeText(this, "You clicked on men designer.", Toast.LENGTH_SHORT).show()
-        }
+        } */
 
 
 
