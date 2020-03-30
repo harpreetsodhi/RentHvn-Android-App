@@ -1,8 +1,6 @@
 package com.example.renthvn
 
-import android.media.Image
-import android.media.audiofx.BassBoost
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.view.MenuItem
@@ -10,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -17,15 +16,15 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_home__screen.*
 import kotlinx.android.synthetic.main.bottom_navigation_footer.*
-import java.sql.Time
 import java.util.*
+
 
 class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
   //  private val mPager: ViewPager
   lateinit var dotsLayout: LinearLayout
     lateinit var mPager: ViewPager
-    var path :IntArray = intArrayOf(R.drawable.slider_1,R.drawable.slide_2,R.drawable.slide_3,R.drawable.slide_2)
+    var path :IntArray = intArrayOf(R.drawable.rsz_slider_1,R.drawable.rsz_slide_2,R.drawable.rsz_slider_3)
     lateinit var dots:Array<ImageView>
     lateinit var adapter:PageView
 
@@ -77,23 +76,19 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
                 positionOffset: Float,
                 positionOffsetPixels: Int
             ) {
-
             }
 
             override fun onPageSelected(position: Int) {
                 currentPage = position
                 createDots(position)
-
             }
-
         })
-
-
         // Create an ArrayAdapter
         val adapter = ArrayAdapter.createFromResource(this,
             R.array.cityNames, android.R.layout.simple_spinner_item)
         // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        adapter.setDropDownViewResource(R.layout.spinner_item)
+
         // Apply the adapter to the spinner
         spinner.adapter = adapter
 
@@ -101,6 +96,8 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>,
                                         view: View, position: Int, id: Long) {
+
+                (parent.getChildAt(0) as TextView).setTextColor(Color.WHITE)
                 getValues(view)
 
             }
@@ -129,7 +126,7 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
             Toast.makeText(this, "You clicked on bridal.", Toast.LENGTH_SHORT).show()
         }
 
-/*        r2.setOnClickListener {
+        r2.setOnClickListener {
 
             Toast.makeText(this, "You clicked on groom.", Toast.LENGTH_SHORT).show()
         }
@@ -142,9 +139,7 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
         r4.setOnClickListener {
 
             Toast.makeText(this, "You clicked on men designer.", Toast.LENGTH_SHORT).show()
-        } */
-
-
+        }
 
         bottom_navigation.setOnNavigationItemSelectedListener {
             when(it.itemId){
@@ -187,7 +182,7 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
             }
             var params: LinearLayout.LayoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT)
-            params.setMargins(4,0,4,0)
+            params.setMargins(3,0,3,0)
             dotsLayout.addView(dots[i], params)
 
         }

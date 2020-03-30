@@ -191,11 +191,14 @@
             android:layout_gravity="top"
             android:src="@drawable/rsz_bridal" />
 
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="1dp"
             android:text="Bridal"
+            android:textAlignment="center"
             android:textColor="#ffffff"
             android:textSize="10sp"
             android:textStyle="bold" />
@@ -277,7 +280,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="1dp"
-                        android:text="Woman Designer"
+                        android:text="Women Designer"
                         android:textAlignment="center"
                         android:textColor="#ffffff"
                         android:textSize="10sp"
