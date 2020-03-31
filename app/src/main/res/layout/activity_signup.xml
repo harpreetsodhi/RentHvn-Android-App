@@ -29,7 +29,7 @@
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_marginStart="24dp"
-            android:src="@drawable/logo_burned"
+            android:src="@drawable/logo_burned1"
             app:layout_constraintStart_toEndOf="@id/signup_backBtn"
             app:layout_constraintTop_toTopOf="parent" />
 

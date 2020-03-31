@@ -60,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
                             toast.setGravity(Gravity.BOTTOM, 0,0)
                             toast.show()
                         }
-                        if(auth.currentUser?.isEmailVerified!!){
+                        if(true){// auth.currentUser?.isEmailVerified!!){
                             //login
                             Toast.makeText(this, "Successfully Logged In!", Toast.LENGTH_LONG).show()
                             val intent = Intent(this, MainActivity::class.java)

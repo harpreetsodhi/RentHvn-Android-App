@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "533991542146-67a0l2lboiqoq009o92rfn20ehopce51.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.project.renthvn",
+            "certificate_hash": "3d9e39796f8d989ef3ab5080a18d0554406cd45b"
+          }
+        },
+        {
           "client_id": "533991542146-0qti3frncv35708r96q8j2nu45q478p8.apps.googleusercontent.com",
           "client_type": 3
         }

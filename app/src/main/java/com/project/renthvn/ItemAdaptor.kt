@@ -1,4 +1,4 @@
-package com.example.renthvn
+package com.project.renthvn
 
 import android.content.Context
 import android.view.LayoutInflater

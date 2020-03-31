@@ -26,7 +26,7 @@
                 android:layout_width="250dp"
                 android:layout_height="250dp"
                 android:layout_gravity="center"
-                android:src="@drawable/logo_burned"/>
+                android:src="@drawable/logo_burned1"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"

@@ -71,7 +71,7 @@ class SignupActivity : AppCompatActivity() {
                             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, OnCompleteListener{ task ->
                                 if(task.isSuccessful){
                                     val userId = auth!!.currentUser!!.uid
-                                    verifyEmail();
+//                                    verifyEmail();
                                     auth.fetchSignInMethodsForEmail(email).addOnCompleteListener(this, OnCompleteListener { task ->
                                         if(task.result?.signInMethods?.isEmpty()!!){
                                             Toast.makeText(this, "Email already in use!!", Toast.LENGTH_LONG).show()

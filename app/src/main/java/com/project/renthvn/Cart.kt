@@ -1,4 +1,4 @@
-package com.example.renthvn
+package com.project.renthvn
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
