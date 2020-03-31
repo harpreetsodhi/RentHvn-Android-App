@@ -1,4 +1,4 @@
-package com.example.renthvn
+package com.project.renthvn
 
 import org.junit.Test
 

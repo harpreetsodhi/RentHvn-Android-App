@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.renthvn">
+    package="com.project.renthvn">
 
     <application
         android:allowBackup="true"
@@ -12,7 +12,9 @@
         <activity
             android:name=".Cart"
             android:label="Cart"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".ForgotPasswordActivity"></activity>
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,6 +30,8 @@
                 <data android:scheme="${applicationId}.braintree" />
             </intent-filter>
         </activity>
+        <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".UpdatePassword"></activity>
     </application>
 
 

@@ -5,20 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <!--Button for calling Cart activity: testing-->
     <Button
-        android:id="@+id/btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#397bb2"
-        android:padding="20sp"
-        android:text="Go To Cart"
-        android:textColor="#FFF"
+        android:id="@+id/main_updatePassBtn"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="@string/main_updatePass"
+        app:layout_constraintBottom_toTopOf="@+id/main_logoutBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/main_logoutBtn"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="@string/main_logOut"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
