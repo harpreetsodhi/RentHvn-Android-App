@@ -6,17 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".Cart">
 
-
     <Button
         android:id="@+id/checkoutButton"
-        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_light"
+        android:background="@color/colorThemeColor"
+        android:fontFamily="sans-serif-light"
         android:text="Proceed to Checkout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="22sp"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvItems"
@@ -60,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:text="Total"
-        android:textColor="#5AC0E6"
+        android:textColor="@color/colorThemeColor"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/checkoutButton"
@@ -89,7 +91,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="$580.00"
-        android:textColor="#5AC0E6"
+        android:textColor="@color/colorThemeColor"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@id/totalLabel"

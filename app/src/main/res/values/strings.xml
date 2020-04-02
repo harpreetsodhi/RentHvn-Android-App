@@ -23,4 +23,11 @@
     <string name="up_or">OR</string>
     <string name="up_back">Back</string>
     <string name="cd_help_closeButton">Close Button</string>
+    <string-array name="cityNames">
+        <item>Halifax</item>
+        <item>Toronto</item>
+        <item>Vancouver</item>
+        <item>Ottawa</item>
+        <item>Calgary</item>
+    </string-array>
 </resources>

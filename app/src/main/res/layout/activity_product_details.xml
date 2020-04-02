@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductDetailsActivity">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scrollbars="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/product_details_image"
+                android:layout_width="wrap_content"
+                android:layout_height="400dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/image_lehnga_choli" />
+
+            <TextView
+                android:id="@+id/product_details_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="Product Name"
+                android:gravity="center"
+                android:textColor="@color/colorThemeColor"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/product_details_image"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/product_details_name" />
+
+            <TextView
+                android:id="@+id/size_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Size:"
+                android:textColor="@color/colorThemeColor"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/product_details_name" />
+
+            <Spinner
+                android:id="@+id/sizeSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:dropDownWidth="150dp"
+                android:layout_marginStart="100dp"
+                app:layout_constraintBaseline_toBaselineOf="@id/size_label"
+                app:layout_constraintStart_toEndOf="@+id/size_label" />
+
+            <TextView
+                android:id="@+id/days_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Rent Period:"
+                android:textColor="@color/colorThemeColor"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/size_label"
+                app:layout_constraintTop_toBottomOf="@+id/size_label" />
+
+            <Spinner
+                android:id="@+id/daysSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:dropDownWidth="50dp"
+                app:layout_constraintBaseline_toBaselineOf="@id/days_label"
+                app:layout_constraintStart_toStartOf="@+id/sizeSpinner" />
+
+            <TextView
+                android:id="@+id/event_date_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Event Date:"
+                android:textColor="@color/colorThemeColor"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/size_label"
+                app:layout_constraintTop_toBottomOf="@+id/days_label" />
+
+            <TextView
+                android:id="@+id/date_picker_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/colorThemeColor"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="Select Date..."
+                app:layout_constraintBaseline_toBaselineOf="@id/event_date_label"
+                app:layout_constraintStart_toStartOf="@+id/sizeSpinner" />
+
+            <TextView
+                android:id="@+id/delivery_date_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Delivery Date:"
+                android:textColor="@color/colorThemeColor"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/size_label"
+                app:layout_constraintTop_toBottomOf="@+id/event_date_label" />
+
+            <TextView
+                android:id="@+id/delivery_date_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/colorThemeColor"
+                android:textStyle="normal|italic"
+                android:textSize="18sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/delivery_date_label"
+                app:layout_constraintStart_toStartOf="@+id/sizeSpinner"  />
+
+            <TextView
+                android:id="@+id/pickup_date_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Pickup Date:"
+                android:textColor="@color/colorThemeColor"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/size_label"
+                app:layout_constraintTop_toBottomOf="@+id/delivery_date_label" />
+
+            <TextView
+                android:id="@+id/pickup_date_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/colorThemeColor"
+                android:textStyle="normal|italic"
+                android:textSize="18sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/pickup_date_label"
+                app:layout_constraintStart_toStartOf="@+id/sizeSpinner"  />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pickup_date_label" />
+
+            <TextView
+                android:id="@+id/color_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Color:"
+                android:textColor="@color/colorThemeColor"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/size_label"
+                app:layout_constraintTop_toBottomOf="@+id/pickup_date_label" />
+
+            <TextView
+                android:id="@+id/color_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/colorThemeColor"
+                android:textStyle="normal"
+                android:textSize="18sp"
+                android:text="Red"
+                app:layout_constraintBaseline_toBaselineOf="@id/color_label"
+                app:layout_constraintStart_toStartOf="@+id/sizeSpinner" />
+
+            <TextView
+                android:id="@+id/desc_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginTop="10dp"
+                android:text="Short Desciption:"
+                android:textColor="@color/colorThemeColor"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@id/size_label"
+                app:layout_constraintTop_toBottomOf="@+id/color_label"
+                />
+
+            <TextView
+                android:id="@+id/desc_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="Desciption"
+                android:textColor="@color/colorThemeColor"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="@+id/size_label"
+                app:layout_constraintTop_toBottomOf="@+id/desc_label" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/priceLabel"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/priceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:text="Price"
+        android:textColor="@color/colorThemeColor"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/addToCartButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/priceValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$580.00"
+        android:layout_marginRight="5dp"
+        android:textColor="@color/colorThemeColor"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/priceLabel"
+        app:layout_constraintBottom_toTopOf="@+id/addToCartButton"
+        app:layout_constraintEnd_toStartOf="@id/perItemLabel" />
+
+    <TextView
+        android:id="@+id/perItemLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(per day)"
+        android:layout_marginRight="5dp"
+        android:textStyle="italic"
+        android:textSize="10dp"
+        app:layout_constraintBaseline_toBaselineOf="@id/priceLabel"
+        android:textColor="@color/colorThemeColor"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/addToCartButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorThemeColor"
+        android:fontFamily="sans-serif-light"
+        android:text="Add to Cart"
+        android:textSize="22sp"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

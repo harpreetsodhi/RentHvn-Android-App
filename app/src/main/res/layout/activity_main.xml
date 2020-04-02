@@ -5,6 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/main_goToCart"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="@string/cart"
+        app:layout_constraintBottom_toTopOf="@+id/main_updatePassBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/main_updatePassBtn"
         android:layout_width="match_parent"

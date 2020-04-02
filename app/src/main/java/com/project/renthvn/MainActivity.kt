@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,31 +17,58 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        auth = FirebaseAuth.getInstance()
 
-        if(auth.currentUser == null){
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
-        }else{
-            Toast.makeText(this, "Already logged in!", Toast.LENGTH_LONG).show()
-        }
+//        val user = FirebaseAuth.getInstance().currentUser
+//        if (user == null) {
+//            Toast.makeText(this, "User not logged in!", Toast.LENGTH_LONG).show()
+//            val intent = Intent(this, LoginActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//            // User is signed in
+//        } else {
+//            Toast.makeText(this, "User is logged in!", Toast.LENGTH_LONG).show()
+//            // No user is signed in
+//        }
+
+
+//        if (auth.currentUser == null) {
+//            val intent = Intent(this, LoginActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        } else {
+//            Toast.makeText(this, "Already logged in!", Toast.LENGTH_LONG).show()
+//        }
+
+        val intent = Intent(this, Home_Screen::class.java)
+        startActivity(intent)
 
         setContentView(R.layout.activity_main)
 
         logoutBtn = findViewById(R.id.main_logoutBtn)
         updatePass = findViewById(R.id.main_updatePassBtn)
 
-        logoutBtn.setOnClickListener{
+        logoutBtn.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }
 
-        updatePass.setOnClickListener{
+        updatePass.setOnClickListener {
             val intent = Intent(this, UpdatePassword::class.java)
             startActivity(intent)
         }
+
+        main_goToCart.setOnClickListener{
+            val intent = Intent(this, Cart::class.java)
+            startActivity(intent)
+        }
+
+//        main_goToCart.setOnClickListener(
+//
+////            val intent = Intent(this, Cart::class.java)
+//            startActivity(intent)
+//        }
+
     }
 }

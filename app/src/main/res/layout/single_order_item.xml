@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/itemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:maxEms="8"
+        android:singleLine="true"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/itemImage"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Cream Sherwani" />
+
+    <TextView
+        android:id="@+id/itemPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/colorThemeColor"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/itemName"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="42.00 CAD" />
+
+    <TextView
+        android:id="@+id/delivery_date_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:text="Delivery: 20 MAR 2020"
+        android:textSize="10sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itemPrice" />
+
+    <ImageView
+        android:id="@+id/period_icon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/period_icon1"
+        app:layout_constraintStart_toStartOf="@id/itemName"
+        app:layout_constraintTop_toBottomOf="@+id/itemName" />
+
+    <ImageView
+        android:id="@+id/range_icon"
+        android:layout_width="25dp"
+        android:layout_height="28dp"
+        android:layout_marginRight="35dp"
+        android:src="@drawable/range_icon1"
+        app:layout_constraintBottom_toTopOf="@+id/pickup_date_view"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/delivery_date_view" />
+
+    <TextView
+        android:id="@+id/period_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:text="3 days"
+        android:textColor="@android:color/black"
+        android:textSize="10sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@id/period_icon"
+        app:layout_constraintLeft_toRightOf="@id/period_icon"
+        app:layout_constraintTop_toTopOf="@+id/period_icon" />
+
+    <ImageView
+        android:id="@+id/size_icon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/cloth_icon"
+        app:layout_constraintStart_toStartOf="@id/itemName"
+        app:layout_constraintTop_toBottomOf="@+id/period_icon" />
+
+    <TextView
+        android:id="@+id/size_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:textColor="@android:color/black"
+        android:textSize="10sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@id/size_icon"
+        app:layout_constraintLeft_toRightOf="@id/size_icon"
+        app:layout_constraintTop_toTopOf="@+id/size_icon"
+        tools:text="UK 10" />
+
+    <TextView
+        android:id="@+id/pickup_date_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:text="Pickup: 24 MAR 2020"
+        android:textSize="10sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/range_icon" />
+
+    <TextView
+        android:id="@+id/note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:textStyle="italic"
+        android:textColor="@android:color/black"
+        android:text="Your item will be delivered on: "
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@id/itemName"
+        app:layout_constraintBottom_toTopOf="@id/separator"
+        />
+
+    <TextView
+        android:id="@+id/delivery_date_for_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold|italic"
+        android:textColor="@android:color/black"
+        android:text="20-05-2020"
+        android:textSize="10sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/note"
+        app:layout_constraintLeft_toRightOf="@id/note"
+        />
+
+
+    <ImageView
+        android:id="@+id/itemImage"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginTop="2dp"
+        android:background="#d3d3d3"
+        app:layout_constraintStart_toStartOf="@id/itemName"
+        app:layout_constraintTop_toBottomOf="@+id/itemImage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

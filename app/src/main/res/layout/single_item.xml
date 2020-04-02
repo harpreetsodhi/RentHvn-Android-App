@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -27,44 +28,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
-        android:textColor="#5AC0E6"
+        android:textColor="@color/colorThemeColor"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@id/itemName"
         app:layout_constraintRight_toRightOf="parent"
         tools:text="42.00 CAD" />
-
-    <ImageView
-        android:id="@+id/remove"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/remove_icon1"
-        app:layout_constraintStart_toStartOf="@id/itemName"
-        app:layout_constraintTop_toBottomOf="@+id/itemName" />
-
-
-    <TextView
-        android:id="@+id/itemQuantity"
-        android:layout_width="22dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="8dp"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@id/remove"
-        app:layout_constraintTop_toBottomOf="@id/itemName"
-        tools:text="1" />
-
-    <ImageView
-        android:id="@+id/add"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/add_icon"
-        app:layout_constraintLeft_toRightOf="@id/itemQuantity"
-        app:layout_constraintTop_toBottomOf="@+id/itemName" />
 
     <TextView
         android:id="@+id/delivery_date_view"
@@ -81,10 +50,10 @@
         android:id="@+id/period_icon"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/period_icon1"
         app:layout_constraintStart_toStartOf="@id/itemName"
-        app:layout_constraintTop_toBottomOf="@+id/remove" />
+        app:layout_constraintTop_toBottomOf="@+id/itemName" />
 
     <ImageView
         android:id="@+id/range_icon"
@@ -113,7 +82,7 @@
         android:id="@+id/size_icon"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/cloth_icon"
         app:layout_constraintStart_toStartOf="@id/itemName"
         app:layout_constraintTop_toBottomOf="@+id/period_icon" />
@@ -169,7 +138,6 @@
         android:id="@+id/itemImage"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:src="@drawable/capture"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

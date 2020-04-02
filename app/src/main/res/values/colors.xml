@@ -12,5 +12,7 @@
     <color name="colorLightGray">#DCDCDC</color>
     <color name="colorDarkSlateGray">#2F4F4F</color>
     <color name="colorThemeColor">#5b556e</color>
+    <color name="active_dots">#D81B60</color>
+    <color name="inactive_dots">#83878b</color>
 </resources>
 

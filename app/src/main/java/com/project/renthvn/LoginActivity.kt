@@ -34,6 +34,14 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         var context: Context? = this.applicationContext
 
+        // if user is already logged in
+        if (FirebaseAuth.getInstance().currentUser != null) {
+            Toast.makeText(this, "User logged in!", Toast.LENGTH_LONG).show()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
 
         emailEt = findViewById(R.id.login_email)
         passwordEt = findViewById(R.id.login_pass)
@@ -45,6 +53,7 @@ class LoginActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+
         loginBtn.setOnClickListener {
             var email: String = emailEt.text.toString()
             var password: String = passwordEt.text.toString()
@@ -55,21 +64,21 @@ class LoginActivity : AppCompatActivity() {
                 auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, OnCompleteListener { task ->
                     if(task.isSuccessful) {
                         auth.currentUser?.reload() // reloads user fields, like emailVerified:
-                        if (!auth.currentUser?.isEmailVerified!!) {
-                            val toast = Toast.makeText(this, "Email not verified!!", Toast.LENGTH_LONG)
-                            toast.setGravity(Gravity.BOTTOM, 0,0)
-                            toast.show()
-                        }
-                        if(true){// auth.currentUser?.isEmailVerified!!){
+//                        if (!auth.currentUser?.isEmailVerified!!) {
+//                            val toast = Toast.makeText(this, "Email not verified!!", Toast.LENGTH_LONG)
+//                            toast.setGravity(Gravity.BOTTOM, 0,0)
+//                            toast.show()
+//                        }
+//                        if(true){// auth.currentUser?.isEmailVerified!!){
                             //login
                             Toast.makeText(this, "Successfully Logged In!", Toast.LENGTH_LONG).show()
                             val intent = Intent(this, MainActivity::class.java)
                             startActivity(intent)
                             finish()
-                        }else{
-                            Toast.makeText(this, "Please verify email!", Toast.LENGTH_LONG).show()
-
-                        }
+//                        }else{
+//                            Toast.makeText(this, "Please verify email!", Toast.LENGTH_LONG).show()
+//
+//                        }
                     }else {
                         Toast.makeText(this, "Login Failed!", Toast.LENGTH_LONG).show()
                     }
