@@ -44,7 +44,7 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
         setContentView(R.layout.activity_home__screen)
         bottom_navigation.setSelectedItemId(R.id.navigation_rent)
 
-        //drawer handling
+        //navigation drawer handling [1]
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         drawerLayout = findViewById(R.id.drawer_layout)
@@ -58,7 +58,8 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
         // navView.setNavigationItemSelectedListener(this)
         nav_view.setNavigationItemSelectedListener(this)
 
-
+        
+        //Page slider [2]
         //toolbar = findViewById(R.id.toolbar) as Toolbar
         mPager = findViewById(R.id.pager) as ViewPager
         adapter = PageView(this,path)
@@ -139,7 +140,7 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
             startActivity(intent)
         }
 
-
+    // bottom navigation handler [3]
         bottom_navigation.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.navigation_rent-> {
@@ -233,3 +234,12 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
     }
 
 }
+
+
+/*
+
+[1] "Navigation drawer", Material Design, 2020. [Online]. Available: https://material.io/components/navigation-drawer/. [Accessed: 03- Apr- 2020].
+
+[2]"Android Image Slider Tutorial - Javapapers", Javapapers, 2020. [Online]. Available: https://javapapers.com/android/android-image-slider-tutorial/. [Accessed: 03- Apr- 2020].
+
+[3]"BottomNavigationView  |  Android Developers", Android Developers, 2020. [Online]. Available: https://developer.android.com/reference/android/support/design/widget/BottomNavigationView. [Accessed: 03- Apr- 2020].
