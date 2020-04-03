@@ -243,3 +243,6 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
 [2]"Android Image Slider Tutorial - Javapapers", Javapapers, 2020. [Online]. Available: https://javapapers.com/android/android-image-slider-tutorial/. [Accessed: 03- Apr- 2020].
 
 [3]"BottomNavigationView  |  Android Developers", Android Developers, 2020. [Online]. Available: https://developer.android.com/reference/android/support/design/widget/BottomNavigationView. [Accessed: 03- Apr- 2020].
+
+*/
+
