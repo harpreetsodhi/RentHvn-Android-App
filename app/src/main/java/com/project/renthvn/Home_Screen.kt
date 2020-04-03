@@ -183,12 +183,10 @@ class Home_Screen : AppCompatActivity() {
             intent.putExtra("gender", "Men")
             startActivity(intent)
         }
-<<<<<<< HEAD
 //
-=======
 
     // bottom navigation handler [3]
->>>>>>> 7cce739f83f77a3fefc04293d5e655acc7e2b346
+
         bottom_navigation.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.navigation_rent-> {
