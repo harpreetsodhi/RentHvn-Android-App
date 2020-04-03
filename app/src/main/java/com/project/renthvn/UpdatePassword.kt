@@ -27,11 +27,6 @@ class UpdatePassword : AppCompatActivity() {
         passwordEt = findViewById(R.id.up_pass)
 
         changePasswordBtn = findViewById(R.id.up_resetPassBtn)
-        back = findViewById(R.id.up_backBtn)
-
-        back.setOnClickListener{
-            finish()
-        }
 
         changePasswordBtn.setOnClickListener{
             var password: String = passwordEt.text.toString()
@@ -41,7 +36,7 @@ class UpdatePassword : AppCompatActivity() {
                 auth.currentUser?.updatePassword(password)
                     ?.addOnCompleteListener(this, OnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            Toast.makeText(this, "Password changes successfully", Toast.LENGTH_LONG)
+                            Toast.makeText(this, "Password changed successfully", Toast.LENGTH_LONG)
                                 .show()
                             finish()
                         } else {
