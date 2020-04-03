@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
@@ -15,12 +16,18 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_home__screen.*
+import kotlinx.android.synthetic.main.activity_home__screen.nav_view
 import kotlinx.android.synthetic.main.bottom_navigation_footer.*
 import java.util.*
 
 
-class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class Home_Screen : AppCompatActivity() {
 
     //  private val mPager: ViewPager
     lateinit var dotsLayout: LinearLayout
@@ -55,8 +62,37 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
         )
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-        // navView.setNavigationItemSelectedListener(this)
-        nav_view.setNavigationItemSelectedListener(this)
+
+        nav_view.setNavigationItemSelectedListener {item ->
+            when (item.itemId) {
+                R.id.nav_men -> {
+                    val intent = Intent(this, MenProductsActivity::class.java)
+                    intent.putExtra("gender", "Men")
+                    startActivity(intent)
+                }
+                R.id.nav_orders -> {
+                    val intent = Intent(this, OrderDetailsActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.nav_women -> {
+                    val intent = Intent(this, MenProductsActivity::class.java)
+                    intent.putExtra("gender", "Women")
+                    startActivity(intent)
+                }
+                R.id.nav_update -> {
+                    val intent = Intent(this, UpdatePassword::class.java)
+                    startActivity(intent)
+                }
+                R.id.nav_logout -> {
+                    FirebaseAuth.getInstance().signOut()
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finishAffinity()
+                }
+            }
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true
+        }
 
 
         //toolbar = findViewById(R.id.toolbar) as Toolbar
@@ -99,7 +135,6 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
                                         view: View, position: Int, id: Long) {
 
                 (parent.getChildAt(0) as TextView).setTextColor(Color.WHITE)
-                getValues(view)
 
             }
 
@@ -108,22 +143,31 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
             }
         }
 
-        val cart_listener = findViewById(R.id.cart_image) as ImageView
-        // set on-click listener
-        cart_listener.setOnClickListener {
-            // your code to perform when the user clicks on the ImageView
-            Toast.makeText(this, "You clicked on cart.", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, Cart::class.java)
-            startActivity(intent)
-        }
 
-        val search_listener = findViewById(R.id.search_image) as ImageView
-        // set on-click listener
-        search_listener.setOnClickListener {
-            // your code to perform when the user clicks on the ImageView
-            Toast.makeText(this, "You clicked on search.", Toast.LENGTH_SHORT).show()
-//            val intent = Intent(this, PushDataActivity::class.java)
-//            startActivity(intent)
+        cart_image.setOnClickListener {
+
+            val userId = FirebaseAuth.getInstance().currentUser?.uid!!
+            val ref = FirebaseDatabase.getInstance().getReference("Cart")
+
+            val postListener = object : ValueEventListener {
+
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    Log.d("cart",dataSnapshot.childrenCount.toString())
+                    if(dataSnapshot.value == null){
+                        val intent = Intent(this@Home_Screen, EmptyCartActivity::class.java)
+                        startActivity(intent)
+                    }
+                    else {
+                        val intent = Intent(this@Home_Screen, Cart::class.java)
+                        startActivity(intent)
+                    }
+                }
+
+                override fun onCancelled(dataSnapshot: DatabaseError) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+            }
+            ref.child(userId).addListenerForSingleValueEvent(postListener)
         }
 
         women_image.setOnClickListener {
@@ -138,20 +182,20 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
             intent.putExtra("gender", "Men")
             startActivity(intent)
         }
-
-
+//
         bottom_navigation.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.navigation_rent-> {
-                    Toast.makeText(this, "Got to rent", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this, "Got to rent", Toast.LENGTH_SHORT).show()
                 }
 
                 R.id.navigation_donation-> {
-                    Toast.makeText(this, "Got to donate", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this,DonationDetails::class.java)
+                    startActivity(intent)
+//                    Toast.makeText(this, "Got to donate", Toast.LENGTH_SHORT).show()
                 }
 
                 R.id.navigation_help-> {
-
                     Toast.makeText(this, "Got to help", Toast.LENGTH_SHORT).show()
                 }
 
@@ -159,8 +203,6 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
             false
 
         }
-
-
 
     }
 
@@ -188,7 +230,7 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
 
     }
 
-    fun updatePage(){
+    private fun updatePage(){
         var handler = Handler()
         val Update: Runnable = Runnable {
             if(currentPage == path.size){
@@ -206,30 +248,6 @@ class Home_Screen : AppCompatActivity(), NavigationView.OnNavigationItemSelected
 
         }, DELAY_MS, PERIOD_MS)
 
-    }
-
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.nav_men -> {
-                Toast.makeText(this, "Men clicked", Toast.LENGTH_SHORT).show()
-            }
-            R.id.nav_women -> {
-                Toast.makeText(this, "Women clicked", Toast.LENGTH_SHORT).show()
-            }
-            R.id.nav_update -> {
-                Toast.makeText(this, "Update clicked", Toast.LENGTH_SHORT).show()
-            }
-            R.id.nav_logout -> {
-                Toast.makeText(this, "logout clicked", Toast.LENGTH_SHORT).show()
-            }
-        }
-        drawerLayout.closeDrawer(GravityCompat.START)
-        return true
-    }
-
-
-    fun getValues(view: View) {
-        Toast.makeText(this, "Spinner " + spinner.selectedItem.toString(), Toast.LENGTH_LONG).show()
     }
 
 }

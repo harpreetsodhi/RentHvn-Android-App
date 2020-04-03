@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
 
         // if user is already logged in
         if (FirebaseAuth.getInstance().currentUser != null) {
-            Toast.makeText(this, "User logged in!", Toast.LENGTH_LONG).show()
+//            Toast.makeText(this, "User logged in!", Toast.LENGTH_LONG).show()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
@@ -71,7 +71,7 @@ class LoginActivity : AppCompatActivity() {
 //                        }
 //                        if(true){// auth.currentUser?.isEmailVerified!!){
                             //login
-                            Toast.makeText(this, "Successfully Logged In!", Toast.LENGTH_LONG).show()
+//                            Toast.makeText(this, "Successfully Logged In!", Toast.LENGTH_LONG).show()
                             val intent = Intent(this, MainActivity::class.java)
                             startActivity(intent)
                             finish()

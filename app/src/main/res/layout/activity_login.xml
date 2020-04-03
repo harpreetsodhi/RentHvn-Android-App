@@ -118,12 +118,10 @@
             <Button
                 android:id="@+id/login_signupButton"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="60dp"
                 android:textSize="20sp"
                 android:textAllCaps="false"
-                android:paddingLeft="70dp"
-                android:paddingRight="70dp"
+                android:layout_gravity="center"
                 android:fontFamily="sans-serif-light"
                 android:drawableEnd="@drawable/ic_signup"
                 android:text="@string/login_new_here_sign_up" />

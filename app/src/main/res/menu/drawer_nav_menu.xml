@@ -2,24 +2,27 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group>
-
-        <item
-            android:id="@+id/nav_women"
-            android:icon="@drawable/woman"
-            android:title="Women"/>
         <item
             android:id="@+id/nav_men"
             android:icon="@drawable/man"
             android:title="Men"/>
+        <item
+            android:id="@+id/nav_women"
+            android:icon="@drawable/woman"
+            android:title="Women"/>
     </group>
 
 
     <item android:title="Account Settings">
         <menu>
             <item
+                android:id="@+id/nav_orders"
+                android:icon="@drawable/cloth_icon"
+                android:title="My Orders"/>
+            <item
                 android:id="@+id/nav_update"
                 android:icon="@drawable/ic_edit"
-                android:title="Update Profile"/>
+                android:title="Update Password"/>
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/ic_power"

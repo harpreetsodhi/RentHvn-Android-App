@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.project.renthvn">
-
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -11,13 +12,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OrderDetailsActivity"></activity>
+        <activity android:name=".DonationUser"></activity>
+        <activity android:name=".DonationDetails" />
+        <activity android:name=".DonationActivity" />
+        <activity android:name=".EmptyCartActivity" />
+        <activity
+            android:name=".OrderDetailsActivity"
+            android:label="Orders" />
         <activity android:name=".OrderSuccessfulActivity" />
-        <activity android:name=".ProductDetailsActivity" />
-        <activity android:name=".MenProductsActivity" />
+        <activity
+            android:name=".ProductDetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MenProductsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PushDataActivity" />
         <activity
             android:name=".Home_Screen"
+            android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Cart"

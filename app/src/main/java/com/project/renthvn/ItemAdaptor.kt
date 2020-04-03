@@ -16,6 +16,7 @@ import android.content.DialogInterface
 import android.R.drawable
 import android.R.string
 import android.app.AlertDialog
+import android.util.Log
 
 
 class ItemAdaptor (private val context: Context, private val items: List<Items>)
@@ -33,19 +34,11 @@ class ItemAdaptor (private val context: Context, private val items: List<Items>)
         holder.itemView.delete_icon.
             setOnClickListener{
                 openDialog(item.cartitemID)
-//                val ref = FirebaseDatabase.getInstance().getReference("Cart")
-//                val userId = FirebaseAuth.getInstance().currentUser?.uid!!
-//                ref.child(userId).child(item.cartitemID).removeValue()
-//                Toast.makeText(this.context, "Item Removed", Toast.LENGTH_SHORT).show()
             }
 
         holder.itemView.remove_view.
             setOnClickListener{
                   openDialog(item.cartitemID)
-//                val ref = FirebaseDatabase.getInstance().getReference("Cart")
-//                val userId = FirebaseAuth.getInstance().currentUser?.uid!!
-//                ref.child(userId).child(item.cartitemID).removeValue()
-//                Toast.makeText(this.context, "Item Removed", Toast.LENGTH_SHORT).show()
             }
 
         holder.itemView.itemImage.

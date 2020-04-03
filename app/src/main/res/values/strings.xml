@@ -8,7 +8,7 @@
     <string name="login_logintext">Login</string>
     <string name="login_forgotPass">Forgot password?</string>
     <string name="login_or">OR</string>
-    <string name="login_new_here_sign_up">New here? Sign Up</string>
+    <string name="login_new_here_sign_up">Sign Up</string>
     <string name="passwordRules">
         Password must contain:\n
         - 8 Characters\n

@@ -6,32 +6,4 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/main_goToCart"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:text="@string/cart"
-        app:layout_constraintBottom_toTopOf="@+id/main_updatePassBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/main_updatePassBtn"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:text="@string/main_updatePass"
-        app:layout_constraintBottom_toTopOf="@+id/main_logoutBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/main_logoutBtn"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:text="@string/main_logOut"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

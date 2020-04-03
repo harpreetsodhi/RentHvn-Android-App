@@ -1,8 +1,11 @@
 package com.project.renthvn
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.ColorFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.braintreepayments.api.dropin.DropInActivity
@@ -26,9 +29,7 @@ class Cart : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
-//        getSupportActionBar()?.setDisplayShowHomeEnabled(true)
-//        getSupportActionBar()?.setLogo(R.drawable.ic_arrow_back_black_24dp)
-//        getSupportActionBar()?.setDisplayUseLogoEnabled(true)
+
         val items = createItems()
 
         rvItems.adapter = ItemAdaptor(this, items)
@@ -67,6 +68,21 @@ class Cart : AppCompatActivity() {
                             )
                     )
                 }
+
+                Log.d("cart - in Cart", items.count().toString())
+
+                if (items.isEmpty()){
+                    DEFAULT_DELIVERY = 0.00
+                    checkoutButton.setEnabled(false)
+                    checkoutButton.setBackgroundColor(Color.GRAY)
+
+                }else{
+                    DEFAULT_DELIVERY = 10.00
+                    checkoutButton.setEnabled(true)
+                    checkoutButton.setBackgroundColor(resources.getColor(R.color.colorThemeColor))
+                }
+
+
                 var TOTAL_VALUE: Double = items.sumByDouble { it.itemPrice }
                 priceValue.text = "${TOTAL_VALUE} CAD"
                 deliveryValue.text = "${DEFAULT_DELIVERY} CAD"
@@ -79,6 +95,7 @@ class Cart : AppCompatActivity() {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
         }
+//        ref.child(userId).addListenerForSingleValueEvent(postListener)
         ref.child(userId).addValueEventListener(postListener)
         return items
     }
