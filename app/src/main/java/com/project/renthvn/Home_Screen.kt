@@ -201,6 +201,8 @@ class Home_Screen : AppCompatActivity() {
 
                 R.id.navigation_help-> {
                     Toast.makeText(this, "Got to help", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this,HelpActivity::class.java)
+                    startActivity(intent)
                 }
 
             }
