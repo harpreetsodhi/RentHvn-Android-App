@@ -1,7 +1,9 @@
 package com.project.renthvn
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -53,6 +55,13 @@ class OrderDetailsActivity : AppCompatActivity() {
                             x.child("ogender").value.toString()
                         )
                     )
+                }
+
+                if (items.isEmpty()) {
+                    tv.visibility = View.VISIBLE
+                }
+                else {
+                    tv.visibility = View.GONE
                 }
                 rvOrderItems.adapter?.notifyDataSetChanged()
             }
