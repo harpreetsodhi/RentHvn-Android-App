@@ -71,18 +71,24 @@ class SignupActivity : AppCompatActivity() {
                             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, OnCompleteListener{ task ->
                                 if(task.isSuccessful){
                                     val userId = auth!!.currentUser!!.uid
-//                                    verifyEmail();
+                                    verifyEmail();
                                     auth.fetchSignInMethodsForEmail(email).addOnCompleteListener(this, OnCompleteListener { task ->
                                         if(task.result?.signInMethods?.isEmpty()!!){
                                             Toast.makeText(this, "Email already in use!!", Toast.LENGTH_LONG).show()
                                         }
                                     })
+
                                     Toast.makeText(this, "Successfully Registered!", Toast.LENGTH_SHORT).show()
+
                                     val currentUserDb = mDatabaseReference!!.child(userId)
                                     currentUserDb.child("firstName").setValue(firstName)
                                     currentUserDb.child("lastName").setValue(lastName)
                                     currentUserDb.child("mobile").setValue(mobile)
                                     currentUserDb.child("email").setValue(email)
+
+                                    val intent = Intent(this, LoginActivity::class.java)
+                                    startActivity(intent)
+                                    finish()
                                 }else {
                                     checkEmailExits(email);
                                     Toast.makeText(this, "Registration Error!", Toast.LENGTH_SHORT).show()
@@ -161,7 +167,7 @@ class SignupActivity : AppCompatActivity() {
 
             // Set a dismiss listener for popup window
             popupWindow.setOnDismissListener {
-                Toast.makeText(applicationContext,"Thank you!", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(applicationContext,"Thank you!", Toast.LENGTH_SHORT).show()
             }
 
 
@@ -182,14 +188,6 @@ class SignupActivity : AppCompatActivity() {
         mUser!!.sendEmailVerification()
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(this@SignupActivity,
-                        "Verification email sent to " + mUser.getEmail(),
-                        Toast.LENGTH_LONG).show()
-                } else {
-                    Log.e(TAG, "sendEmailVerification", task.exception)
-                    Toast.makeText(this@SignupActivity,
-                        "Failed to send verification email.",
-                        Toast.LENGTH_SHORT).show()
                 }
             }
     }
