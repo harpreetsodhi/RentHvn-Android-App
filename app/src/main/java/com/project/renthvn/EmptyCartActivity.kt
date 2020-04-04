@@ -12,7 +12,7 @@ class EmptyCartActivity : AppCompatActivity() {
         setContentView(R.layout.activity_empty_cart)
 
         gotoHomepage.setOnClickListener{
-            val intent = Intent(this, OrderDetailsActivity::class.java)
+            val intent = Intent(this, Home_Screen::class.java)
             startActivity(intent)
             finish()
         }

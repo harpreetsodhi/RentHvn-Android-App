@@ -13,27 +13,23 @@ import com.google.firebase.auth.FirebaseAuth
 class ForgotPasswordActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
-
     private lateinit var emailEt: EditText
-
     private lateinit var resetPasswordBtn: Button
     private lateinit var back: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_password)
-
+        //Getting the Firebase auth instance for user authentication
         auth = FirebaseAuth.getInstance()
-
         emailEt = findViewById(R.id.fp_email)
-
         resetPasswordBtn = findViewById(R.id.fp_resetPassBtn)
         back = findViewById(R.id.fp_backBtn)
-
+        //action to perform if back button is pressed
         back.setOnClickListener {
             finish()
         }
-
+        //action to perform if reset password button is pressed
         resetPasswordBtn.setOnClickListener {
             var email: String = emailEt.text.toString()
             if (TextUtils.isEmpty(email)) {
