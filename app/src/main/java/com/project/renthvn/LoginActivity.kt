@@ -15,19 +15,16 @@ import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
 
+    // Initializing required variables
     private lateinit var auth: FirebaseAuth
-
     private lateinit var emailEt: EditText
     private lateinit var passwordEt: EditText
-
     private lateinit var signupBtn: Button
-
     private lateinit var loginBtn: Button
     private val TAG = "LoginActivity"
-
     private lateinit var resetPasswordTv: TextView
 
-
+    //overriding onCreate method to add custom functionality
     override fun onCreate(savedInstanceState: Bundle?) {
         setTitle("Login");
         super.onCreate(savedInstanceState)
@@ -45,19 +42,16 @@ class LoginActivity : AppCompatActivity() {
 
         emailEt = findViewById(R.id.login_email)
         passwordEt = findViewById(R.id.login_pass)
-
         signupBtn = findViewById(R.id.login_signupButton)
         loginBtn = findViewById(R.id.login_loginBtn)
-
         resetPasswordTv = findViewById(R.id.login_resetPassTV)
-
         auth = FirebaseAuth.getInstance()
 
-
+        // action to perform when login button is pressed
         loginBtn.setOnClickListener {
             var email: String = emailEt.text.toString()
             var password: String = passwordEt.text.toString()
-
+            //if input fields are empty, give appropriate message
             if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
                 Toast.makeText(this@LoginActivity, "Please fill all the fields!", Toast.LENGTH_LONG).show()
             } else{
@@ -85,13 +79,13 @@ class LoginActivity : AppCompatActivity() {
                 })
             }
         }
-
+        // action to perform when sign up button is pressed
         signupBtn.setOnClickListener{
             val intent = Intent(this, SignupActivity::class.java)
             startActivity(intent)
             finish()
         }
-
+        //action to perform when reset password is pressed
         resetPasswordTv.setOnClickListener{
             val intent = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(intent)

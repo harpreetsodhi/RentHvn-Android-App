@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_signup.*
 
 class SignupActivity : AppCompatActivity() {
-
+    // Initializing variables
     private lateinit var auth: FirebaseAuth
     private val TAG = "SignupActivity"
     private lateinit var emailEt: EditText
@@ -38,7 +38,7 @@ class SignupActivity : AppCompatActivity() {
     val passwordPattern:Regex = """^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%!\-_?&])(?=\S+$).{8,}""".toRegex()
     val mobPattern:Regex = """^([+]\d{2})?\d{10}$""".toRegex()
 
-
+    //overriding onCreate method to add custom functionality
     override fun onCreate(savedInstanceState: Bundle?) {
         setTitle("Create Account");
         super.onCreate(savedInstanceState)
@@ -56,39 +56,39 @@ class SignupActivity : AppCompatActivity() {
         lastNameEt = findViewById(R.id.signup_ln)
         mobileEt = findViewById(R.id.signup_mob)
 
+        // action to perform when user presses sign up button button is pressed
         signUpBtn.setOnClickListener{
             var email: String = emailEt.text.toString()
             var password: String = passwordEt.text.toString()
             var firstName: String = firstNameEt.text.toString()
             var lastName: String = lastNameEt.text.toString()
             var mobile: String = mobileEt.text.toString()
+            // check for empty fields and inform user about it
             if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)|| TextUtils.isEmpty(mobile)|| TextUtils.isEmpty(firstName)|| TextUtils.isEmpty(lastName)) {
                 Toast.makeText(this, "Please fill all the fields!", Toast.LENGTH_LONG).show()
             } else{
+                // Input field validations applied
                 if(mobPattern.matches(mobile)){
                     if (Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                         if (passwordPattern.matches(password)) {
                             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, OnCompleteListener{ task ->
                                 if(task.isSuccessful){
                                     val userId = auth!!.currentUser!!.uid
+                                    //send verification email to user
                                     verifyEmail();
+                                    //check if email exists?
                                     auth.fetchSignInMethodsForEmail(email).addOnCompleteListener(this, OnCompleteListener { task ->
                                         if(task.result?.signInMethods?.isEmpty()!!){
                                             Toast.makeText(this, "Email already in use!!", Toast.LENGTH_LONG).show()
                                         }
                                     })
-
                                     Toast.makeText(this, "Successfully Registered!", Toast.LENGTH_SHORT).show()
-
+                                    // Insert values to realtime DB
                                     val currentUserDb = mDatabaseReference!!.child(userId)
                                     currentUserDb.child("firstName").setValue(firstName)
                                     currentUserDb.child("lastName").setValue(lastName)
                                     currentUserDb.child("mobile").setValue(mobile)
                                     currentUserDb.child("email").setValue(email)
-
-                                    val intent = Intent(this, LoginActivity::class.java)
-                                    startActivity(intent)
-                                    finish()
                                 }else {
                                     checkEmailExits(email);
                                     Toast.makeText(this, "Registration Error!", Toast.LENGTH_SHORT).show()
@@ -105,17 +105,14 @@ class SignupActivity : AppCompatActivity() {
                 }
             }
         }
-
+        // action to perform when user presses login up button button is pressed
         loginBtn.setOnClickListener{
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }
+        // action to perform when user presses help up button button is pressed
         helpBtn.setOnClickListener{
-//            val intent = Intent(this, PopUpWindow::class.java)
-//            startActivity(intent)
-//            finish()
-
 
             val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
@@ -167,7 +164,7 @@ class SignupActivity : AppCompatActivity() {
 
             // Set a dismiss listener for popup window
             popupWindow.setOnDismissListener {
-//                Toast.makeText(applicationContext,"Thank you!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext,"Thank you!", Toast.LENGTH_SHORT).show()
             }
 
 
@@ -188,6 +185,14 @@ class SignupActivity : AppCompatActivity() {
         mUser!!.sendEmailVerification()
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
+                    Toast.makeText(this@SignupActivity,
+                        "Verification email sent to " + mUser.getEmail(),
+                        Toast.LENGTH_LONG).show()
+                } else {
+                    Log.e(TAG, "sendEmailVerification", task.exception)
+                    Toast.makeText(this@SignupActivity,
+                        "Failed to send verification email.",
+                        Toast.LENGTH_SHORT).show()
                 }
             }
     }
