@@ -19,10 +19,7 @@ import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_men_products.*
 import kotlinx.android.synthetic.main.activity_men_products.nav_view
 
-class MenProductsActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    override fun onNavigationItemSelected(p0: MenuItem): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+class MenProductsActivity : AppCompatActivity() {
 
     lateinit var toolbar: androidx.appcompat.widget.Toolbar
     lateinit var drawerLayout: DrawerLayout
