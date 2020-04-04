@@ -3,46 +3,194 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:scrollbars="vertical"
     android:layout_height="match_parent"
     tools:context=".OrderSuccessfulActivity">
 
-    <TextView
-        android:id="@+id/tv1"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="15dp"
-        android:text="Welcome to RentHvn"
-        android:textColor="@color/colorThemeColor"
-        android:textSize="25sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:scrollbars="vertical">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="Go to My Orders for order details"
-        android:textColor="@color/colorThemeColor"
-        android:textSize="20sp"
-        android:textStyle="italic"
-        app:layout_constraintStart_toStartOf="@+id/tv1"
-        app:layout_constraintTop_toBottomOf="@+id/tv1" />
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:text="Welcome to RentHvn"
+                android:textColor="@color/colorThemeColor"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="If any further queries, you can reach out to us via:\nPhone: +1-902-401-1501\nEmailid: renthvn_yourdesire@gmail.com"
-        android:textColor="@color/colorThemeColor"
-        android:textSize="20sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="@+id/tv1"
-        app:layout_constraintTop_toBottomOf="@+id/tv2" />
+            <TextView
+                android:id="@+id/tv5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="About Us"
+                android:textColor="@color/colorThemeColor"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv1"
+                app:layout_constraintTop_toBottomOf="@+id/tv1" />
 
 
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RentHvn is an interesting concept that provides the user a platform to rent the dresses at a very nominal price and without going though tiring and complex procedures. Moreover, it lets users donate their old clothes with a click of a button."
+                android:textColor="@color/colorThemeColor"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv5" />
+
+            <TextView
+                android:id="@+id/tv7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="FAQs"
+                android:textColor="@color/colorThemeColor"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv1"
+                app:layout_constraintTop_toBottomOf="@+id/tv2" />
+
+            <TextView
+                android:id="@+id/q1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Q. What does the app does?"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/colorThemeColor"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/tv1"
+                app:layout_constraintTop_toBottomOf="@+id/tv7" />
+
+            <TextView
+                android:id="@+id/a1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RentHvn helps you rent your desired dress at a nominal price and helps you donate your old clothes."
+                android:textColor="@color/colorThemeColor"
+                android:padding="5dp"
+                android:textSize="17sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="@id/tv1"
+                app:layout_constraintTop_toBottomOf="@+id/q1" />
+
+
+
+            <TextView
+                android:id="@+id/q2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Q. How to place an order to rent?"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/colorThemeColor"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/tv1"
+                app:layout_constraintTop_toBottomOf="@+id/a1" />
+
+            <TextView
+                android:id="@+id/a2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. Choose a product\n2. Select the size , duration , event date (the date you want the dress)\n3. Click on add to cart\n4. Pay using Paypal or Debit/Credit Card"
+                android:textColor="@color/colorThemeColor"
+                android:padding="5dp"
+                android:textSize="17sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="@id/tv1"
+                app:layout_constraintTop_toBottomOf="@+id/q2" />
+
+
+            <TextView
+                android:id="@+id/q3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Q. What is the duration for renting the clothes with RentHvn?"
+                android:layout_marginTop="5dp"
+                android:paddingRight="10dp"
+                android:textColor="@color/colorThemeColor"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/tv1"
+                app:layout_constraintTop_toBottomOf="@+id/a2" />
+
+            <TextView
+                android:id="@+id/a3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="You can rent the dress for 1,3 or 5 days."
+                android:textColor="@color/colorThemeColor"
+                android:padding="5dp"
+                android:textSize="17sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="@id/tv1"
+                app:layout_constraintTop_toBottomOf="@+id/q3" />
+
+            <TextView
+                android:id="@+id/q4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Q. What is the criteria for donating?"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/colorThemeColor"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/tv1"
+                app:layout_constraintTop_toBottomOf="@+id/a3" />
+
+            <TextView
+                android:id="@+id/a4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="The clothes should be not be torn or messy."
+                android:textColor="@color/colorThemeColor"
+                android:padding="5dp"
+                android:textSize="17sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="@id/tv1"
+                app:layout_constraintTop_toBottomOf="@+id/q4" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#d3d3d3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/a4" />
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="If any further queries, you can reach out to us via:\nPhone: +1-902-401-1501\nEmailid: renthvn_yourdesire@gmail.com"
+                android:textColor="@color/colorThemeColor"
+                android:textSize="15sp"
+                android:paddingBottom="10dp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="@+id/tv1"
+                app:layout_constraintTop_toBottomOf="@id/line"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
     />
 </androidx.constraintlayout.widget.ConstraintLayout>
